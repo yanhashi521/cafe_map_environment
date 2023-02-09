@@ -2,7 +2,7 @@ import React from "react";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 import { Link, router } from "@inertiajs/react";
 //import style_mapModule from "./japan_responsive_map/style_map.module.css";
-import "./index.css";
+import "./japan_responsive_map/index.css";
 
 const Index = (props) => {
     return (

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+});*/
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -36,3 +37,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::group(["middleware" => ["auth"]], function() {
+
+ 
+   Route::get("/", [PostController::class, "index"]);
+   Route::get("/shop_local_map", [PostController::class, "show_local_map"]);
+   
+});

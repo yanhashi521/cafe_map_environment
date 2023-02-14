@@ -5,7 +5,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import GoogleMap_show from "./GoogleMap_show";
 
 
-const Show_local_map = (props) => {
+const Show_location_from_prefecure = (props) => {
 
     return (
         <Authenticated auth={props.auth} header={
@@ -26,4 +26,4 @@ const Show_local_map = (props) => {
         );
 }
 
-export default Show_local_map;
+export default Show_location_from_prefecure;

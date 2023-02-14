@@ -24,7 +24,7 @@ const Index = (props) => {
                 </div>
                 <div>
                     <h2>
-                        <Link href="/">都道府県から探す</Link>
+                        <Link href="/top">都道府県から探す</Link>
                     </h2>
 
                     <div id="japan-map" class="clearfix">

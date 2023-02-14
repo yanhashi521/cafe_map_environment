@@ -16,5 +16,7 @@ class PostController extends Controller {
         return Inertia::render("Post/Show_local_map");
     }
     
-    
+    public function show_location_from_prefecture() {
+        return Inertia::render("Post/Show_location_from_prefecture");
+    }
 }

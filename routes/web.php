@@ -41,7 +41,8 @@ require __DIR__.'/auth.php';
 Route::group(["middleware" => ["auth"]], function() {
 
  
-   Route::get("/", [PostController::class, "index"]);
+   Route::get("/top", [PostController::class, "index"]);
    Route::get("/shop_local_map", [PostController::class, "show_local_map"]);
+   Route::get("/show_location_from_prefecture", [PostController::class, "show_location_from_prefecture"]);
    
 });

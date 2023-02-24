@@ -1,11 +1,15 @@
 import React from "react";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
-import { Link, router } from "@inertiajs/react";
+import { Link, router, Head } from "@inertiajs/react";
 //import style_mapModule from "./japan_responsive_map/style_map.module.css";
 import "./japan_responsive_map/index.css";
 
 const Index = (props) => {
+    const { prefectures } = props; // 追加
+    console.log(props); // 確認用に追加
+    
     return (
+        
         <Authenticated
             auth={props.auth}
             header={
@@ -14,24 +18,26 @@ const Index = (props) => {
                 </h2>
             }
         >
+        <Head title="favorite cafes" />
             <div className="p-12">
-                <div>
+                <div className="inline-grid grid-cols-1 gap-10 text-lg">
                     <h2>
-                        <Link href="/shop_local_map">
-                            近くのカフェを探す(現在地から探す)
-                        </Link>
+                        <Link href="/shop_local_map">近くのカフェを探す(現在地から探す)</Link>
                     </h2>
-                </div>
-                <div>
                     <h2>
                         <Link href="/top">都道府県から探す</Link>
                     </h2>
-
-                    <div id="japan-map" class="clearfix">
+                    
+                    <h2>
+                        <Link href="/search_shop">登録するお店を探す</Link>
+                    </h2>
+                </div>
+                <div>
+                    <div id="japan-map" class="clearfix" >
                         <div id="hokkaido-touhoku" class="clearfix">
                             <p class="area-title">北海道・東北</p>
                             <div class="area">
-                                <Link href="#">
+                                <Link href="/show_location_from_prefecture" data>
                                     <div id="hokkaido">
                                         <p>北海道</p>
                                     </div>

@@ -8,8 +8,8 @@ use App\Models\Post;
 
 class PostController extends Controller {
     
-    public function index() {
-        return Inertia::render("Post/Index");
+    public function index(Post $prefecture) {
+        return Inertia::render("Post/Index", ["prefectures" => $prefecture]);
     }
     
     public function show_local_map() {
@@ -18,5 +18,9 @@ class PostController extends Controller {
     
     public function show_location_from_prefecture() {
         return Inertia::render("Post/Show_location_from_prefecture");
+    }
+    
+    public function search_shop() {
+        return Inertia::render("Post/Places");
     }
 }

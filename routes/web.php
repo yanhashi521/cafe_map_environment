@@ -17,14 +17,14 @@ use App\Http\Controllers\PostController;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});*/
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -39,10 +39,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::group(["middleware" => ["auth"]], function() {
-
  
    Route::get("/top", [PostController::class, "index"]);
    Route::get("/shop_local_map", [PostController::class, "show_local_map"]);
    Route::get("/show_location_from_prefecture", [PostController::class, "show_location_from_prefecture"]);
+   Route::get("/search_shop", [PostController::class, "search_shop"]);
    
 });

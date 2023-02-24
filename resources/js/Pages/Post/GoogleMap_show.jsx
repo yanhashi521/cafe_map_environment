@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import Autocomplete from "react-google-autocomplete";
 
 
 export default function GoogleMap_show() {
     const [place,setPlace] = useState();
     const [lat,setLat] = useState(35.65818207396587);
     const [lng,setLng] = useState(139.70166798416372);//初期値は渋谷
-    
+
     const changeLocationName = (event) => {
-        
     
         if (event.key === 'Enter') {
             geocode();
@@ -20,6 +20,7 @@ export default function GoogleMap_show() {
     function geocode() {
         const geocoder = new window.google.maps.Geocoder();
         geocoder.geocode({address: place}, (results, status) => {
+            console.log(results);
             if (status === 'OK') {
                 setLat(results[0].geometry.location.lat()),
                 setLng(results[0].geometry.location.lng());
@@ -27,10 +28,9 @@ export default function GoogleMap_show() {
             //console.log(lat);
         });
     }
-    
     const containerStyle = {
-        width: "1000px",
-        height: "600px",
+        width: "80%",
+        height: "100vh",
     };
 
     const center = {
@@ -43,18 +43,26 @@ export default function GoogleMap_show() {
         <React.Fragment>
             
             <div>
-                <input type="text" 
-                    onKeyDown={(event) => changeLocationName(event)}
-                />
-                <button type="submit" className="p-1 bg-purple-300 hover:bg-purple-400 rounded-md">検索</button>
-                <LoadScript googleMapsApiKey=>
-                    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
+                <div className="container mx-auto my-4">
+                    <input type="text" onKeyDown={(event) => changeLocationName(event)}/>
+                </div>
+                
+                <LoadScript googleMapsApiKey="AIzaSyDBKCPRHFueXbnw-e9fBAXc1dDPjgHgNEE">
+                    <GoogleMap 
+                        mapContainerStyle={containerStyle}
+                        center={{
+                            lat: Number(lat),
+                            lng: Number(lng),
+                        }}
+                        zoom={14}
+                    >
                         <Marker position={{
                             lat: Number(lat),
                             lng: Number(lng),
                         }}/>
                     </GoogleMap>
                 </LoadScript>
+                
                 <p>緯度：{lat}</p>
                 <p>軽度：{lng}</p>
             </div>

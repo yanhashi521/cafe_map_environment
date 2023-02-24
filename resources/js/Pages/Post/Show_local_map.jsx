@@ -13,10 +13,14 @@ const Show_local_map = (props) => {
                     店名・駅名
                 </h2>
             }>
-            <Link href="/top">戻る</Link>
+            <div className="inline-grid grid-cols-5 gap-10 text-lg">
+                <div className="container mx-auto my-4 px-4">
+                    <Link href="/top">＜戻る</Link>
+                </div>
+            </div>
             <div className="p-12">
                 
-                <div>
+                <div className="container mx-auto my-4 px-4 ">
                     <GoogleMap_show/>
                     
                 </div>

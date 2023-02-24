@@ -6,6 +6,7 @@ import GoogleMap_show from "./GoogleMap_show";
 
 
 const Show_location_from_prefecure = (props) => {
+    
 
     return (
         <Authenticated auth={props.auth} header={
@@ -18,8 +19,10 @@ const Show_location_from_prefecure = (props) => {
                 
                 <div>
                     <GoogleMap_show/>
-                    
                 </div>
+                {/*<div>
+                    <h2>{data.prefecture}</h2>
+                </div>*/}
             </div>
             
         </Authenticated>

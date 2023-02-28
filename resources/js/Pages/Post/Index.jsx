@@ -21,12 +21,12 @@ const Index = (props) => {
         <Head title="favorite cafes" />
             <div className="p-12">
                 <div className="inline-grid grid-cols-1 gap-10 text-lg">
-                    <h2>
+                    {/*<h2>
                         <Link href="/shop_local_map">近くのカフェを探す(現在地から探す)</Link>
                     </h2>
                     <h2>
                         <Link href="/top">都道府県から探す</Link>
-                    </h2>
+                    </h2>*/}
                     
                     <h2>
                         <Link href="/search_shop">登録するお店を探す</Link>

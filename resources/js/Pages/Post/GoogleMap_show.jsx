@@ -47,7 +47,7 @@ export default function GoogleMap_show() {
                     <input type="text" onKeyDown={(event) => changeLocationName(event)}/>
                 </div>
                 
-                <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_API_KEY}>
+                <LoadScript googleMapsApiKey="AIzaSyDBKCPRHFueXbnw-e9fBAXc1dDPjgHgNEE">
                     <GoogleMap 
                         mapContainerStyle={containerStyle}
                         center={{

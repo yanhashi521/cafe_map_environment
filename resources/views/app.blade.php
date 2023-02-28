@@ -7,7 +7,7 @@
         <title inertia>{{ config('app.name', 'Favorite cafes') }}</title>
 
         <!-- Fonts -->
-        <link rel="shortcut icon" type="image/x-icon"  href="{{ asset('/favicon.ico') }}">
+        <link rel="shortcut icon" type="image/x-icon"  href="{{ asset('favi/caffe_cup.ico') }}">
 
         <!-- Scripts -->
         @routes

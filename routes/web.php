@@ -43,6 +43,10 @@ Route::group(["middleware" => ["auth"]], function() {
    Route::get("/top", [PostController::class, "index"]);
    Route::get("/shop_local_map", [PostController::class, "show_local_map"]);
    Route::get("/show_location_from_prefecture", [PostController::class, "show_location_from_prefecture"]);
-   Route::get("/search_shop", [PostController::class, "search_shop"]);
    
+   Route::get("/search_shop/{favoriteShop}/create", [PostController::class, "create"]);//→これがカリキュラムでいうedit
+   Route::get("/search_shop", [PostController::class, "search_shop"]);//→これがカリキュラムでいうcreate
+   Route::get("/search_shop/{favoriteShop}", [PostController::class, "show"]);
+   Route::post("/search_shop", [PostController::class, "store"]);
+   Route::put('/search_shop/{favoriteShop}', [PostController::class, "update"]);
 });

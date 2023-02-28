@@ -12,7 +12,7 @@ return new class extends Migration
      * @return void
      */
     public function up() {
-        Schema::create('favorite_shop', function (Blueprint $table) {
+        Schema::create('favorite_shops', function (Blueprint $table) {
             $table->id();
             $table->string("shop_name",50);
             $table->float("lat");

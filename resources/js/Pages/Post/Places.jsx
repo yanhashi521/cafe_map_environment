@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import {GoogleMap, Autocomplete, useLoadScript, Marker } from "@react-google-maps/api";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 const placesLibrary = ["places"];
+import { Link, useForm } from '@inertiajs/react';
 
 function Places(props) {
-  const [lat,setLat] = useState(35.65818207396587);
-  const [lng,setLng] = useState(139.70166798416372);//初期値は渋谷
+  const [lats,setLat] = useState(35.65818207396587);
+  const [lngs,setLng] = useState(139.70166798416372);//初期値は渋谷
   const [searchResult, setSearchResult] = useState("Result: none");
+  
+  const {data, setData, post} = useForm({
+        shop_name: "入力",
+        lat: "",
+        lng: "",
+  })
+  //console.log(shop_data.lat);
+  
+  const handleSendPosts = (e) => {
+        e.preventDefault();
+        post("/search_shop");
+    }
   
   const containerStyle = {
         width: "100%",
@@ -14,9 +27,9 @@ function Places(props) {
   };
   
   const center = {
-        lat: Number(lat), 
-        lng: Number(lng),
-    };
+        lat: Number(lats), 
+        lng: Number(lngs),
+  };
   
   const defaultBounds = {
     north: center.lat + 0.1,
@@ -43,9 +56,11 @@ function Places(props) {
       const formattedAddress = place.formatted_address;
       setLat(place.geometry.location.lat());
       setLng(place.geometry.location.lng());
-      console.log(`Name: ${name}`);
-      console.log(`Business Status: ${status}`);
-      console.log(`Formatted Address: ${formattedAddress}`);
+      setData("lat" ,place.geometry.location.lat());
+      setData("lng" ,place.geometry.location.lng());
+      //console.log(`Name: ${name}`);
+      //console.log(`Business Status: ${status}`);
+      //console.log(`Formatted Address: ${formattedAddress}`);
     } else {
       alert("Please enter text");
     }
@@ -89,20 +104,27 @@ function Places(props) {
                   outline: `none`,
                   textOverflow: `ellipses`
                 }}
-              />
+                />
             </Autocomplete>
           </div>
-          <GoogleMap 
+          
+          <form onSubmit={handleSendPosts}>
+            <div>
+              <button href={`/search_shop/${post.id}/create`} type="submit" onClick={() => {setData({lat: Number(lats) ,lng: Number(lngs), shop_name: "test"})}}>店舗をお気に入り登録する</button>
+            </div>
+          </form>
+          
+              <GoogleMap 
               mapContainerStyle={containerStyle}
               center={{
-                  lat: Number(lat),
-                  lng: Number(lng),
+                  lat: Number(lats),
+                  lng: Number(lngs),
               }}
               zoom={14}
           >
           <Marker position={{
-              lat: Number(lat),
-              lng: Number(lng),
+              lat: Number(lats),
+              lng: Number(lngs),
           }}/>
           </GoogleMap>
         </div>

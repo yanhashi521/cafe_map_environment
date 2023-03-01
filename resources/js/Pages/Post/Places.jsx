@@ -39,11 +39,10 @@ function Places(props) {
   };
   
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDBKCPRHFueXbnw-e9fBAXc1dDPjgHgNEE",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY,
     libraries: placesLibrary
     
   });
-  
   function onLoad(autocomplete) {
     setSearchResult(autocomplete);
   }

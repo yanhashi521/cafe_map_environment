@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import Autocomplete from "react-google-autocomplete";
 
 
 export default function GoogleMap_show() {

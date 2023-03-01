@@ -21,7 +21,6 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@reach/combobox": "^0.18.0",
         "@react-google-maps/api": "^2.18.1",
         "react-google-autocomplete": "^2.7.3",
         "react-number-format": "^5.1.3",

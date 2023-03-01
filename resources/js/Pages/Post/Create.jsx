@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useForm } from '@inertiajs/react';
-
+import Authenticated from "@/Layouts/AuthenticatedLayout";
 
 const Create = (props) => {
     const {favoriteShop} = props;

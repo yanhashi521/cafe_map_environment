@@ -49,6 +49,10 @@ class PostController extends Controller {
         return redirect("/search_shop/" . $favoriteShop->id);
     }
     
+    public function shop_list(FavoriteShop $favoriteShop) {
+        return Inertia::render("Post/Show_list", ["favoriteShops" => $favoriteShop->get()]);
+    }
+    
     
 }
 

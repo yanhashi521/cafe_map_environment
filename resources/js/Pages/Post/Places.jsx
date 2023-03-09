@@ -113,7 +113,11 @@ function Places(props) {
             </div>
           </form>
           
-              <GoogleMap 
+          <div>
+              <Link href="/shop_list">お気に入り登録した店舗を確認する</Link>
+          </div>
+          
+          <GoogleMap 
               mapContainerStyle={containerStyle}
               center={{
                   lat: Number(lats),

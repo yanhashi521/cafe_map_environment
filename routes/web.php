@@ -49,4 +49,6 @@ Route::group(["middleware" => ["auth"]], function() {
    Route::get("/search_shop/{favoriteShop}", [PostController::class, "show"]);
    Route::post("/search_shop", [PostController::class, "store"]);
    Route::put('/search_shop/{favoriteShop}', [PostController::class, "update"]);
+   Route::get("/shop_list", [PostController::class, "shop_list"]);
+              
 });

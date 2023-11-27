@@ -9,9 +9,17 @@
         {
             "src": "public/**",
             "use": "vercel-php@0.6.0"
+        },
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build"
         }
     ],
     "routes": [
+        {
+            "src": "/build/assets/(.*)",
+            "dest": "/build/assets/"
+        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
@@ -19,7 +27,6 @@
     ],
     "env": {
         "APP_NAME": "Laravel Vercel",
-        "APP_DEBUG": "false",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
